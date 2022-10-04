@@ -1,6 +1,7 @@
 import { CBadge } from '@coreui/react';
 import { BageItem, NavItem } from 'layouts/helper';
 import React from 'react';
+import { IconType } from 'react-icons';
 import { NavLink, useLocation } from 'react-router-dom';
 
 type SidebarNavProps = {
@@ -10,10 +11,10 @@ type SidebarNavProps = {
 const AppSidebarNav: React.FC<SidebarNavProps> = ({ items }) => {
   const location = useLocation();
 
-  const navLink = (name?: string, icon?: React.ReactNode, badge?: BageItem) => {
+  const navLink = (name?: string, Icon?: IconType, badge?: BageItem) => {
     return (
       <>
-        {icon && icon}
+        {Icon && <Icon size={20} style={{ margin: '-3px 8px 0 0' }} />}
         {name && name}
         {badge && (
           <CBadge color={badge.color} className="ms-auto">

@@ -1,3 +1,26 @@
-.pointer{
+.app-container {
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 0 16px 10px 16px;
+
+  &:empty {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.app-card {
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 6px;
+
+  &:empty {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.pointer {
   cursor: pointer;
 }

@@ -3,12 +3,12 @@ import routesMap from 'layouts/routesMap';
 import { memoize } from 'lodash';
 import { lazy } from 'react';
 
-const LoginPage = lazy(() => import('pages/LoginPage'));
+const DangNhap = lazy(() => import('pages/DangNhap'));
 
 const routes: AppRouteType[] = [
   {
     path: routesMap.LOGIN,
-    component: LoginPage,
+    component: DangNhap,
   },
 ];
 

@@ -7,7 +7,7 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { setStorageData, STORAGE_KEY } from 'utils/storage';
 import { toastError, toastSuccess } from 'utils/toastify';
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Image } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { BsFacebook, BsGoogle } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
@@ -24,7 +24,7 @@ const schema = yup.object({
   password: yup.string().required('Vui lòng nhập mật khẩu').min(5, 'Mật khẩu tối thiểu 5 ký tự'),
 });
 
-const LoginPage: React.FC = () => {
+const DangNhapPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -54,45 +54,44 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="vw-100 vh-100 bg-light d-flex flex-column align-items-center">
-      <div style={{ height: '10%' }} />
-      <div className="bg-white p-3 rounded-4 shadow-lg h-75 w-75 d-flex gap-3">
-        <div className="h-100 pt-3" style={{ flex: 1 }}>
+    <div className="vw-100 vh-100 d-flex">
+      <div className="w-50 bg-light d-flex align-items-center justify-content-center">
+        <div className="bg-white p-4 rounded-4 shadow-lg" style={{ width: 500 }}>
           <div className="text-center">
-            <h4>Minh Khải Logistics</h4>
-            <p className="m-0 fst-italic" style={{ fontSize: 13 }}>
+            <h4 className="text-secondary">Minh Khải Logistics</h4>
+            <h5 className="m-0 fst-italic" style={{ fontSize: 13 }}>
               Nhanh, Hiệu quả, Chuyên nghiệp
-            </p>
+            </h5>
           </div>
           <hr />
 
-          <Form onSubmit={handleSubmit(onSubmit)} className="mt-5 d-flex flex-column align-items-center">
-            <div className="w-75">
-              <Form.FloatingLabel controlId="username" label="Tài khoản">
-                <Form.Control
-                  {...register('username')}
-                  placeholder="Tài khoản"
-                  isInvalid={Boolean(errors.username?.message)}
-                />
-              </Form.FloatingLabel>
-              <MessageError text={errors.username?.message} />
-            </div>
+          <Form onSubmit={handleSubmit(onSubmit)} className="mt-5">
+            <Form.FloatingLabel controlId="username" label="Tài khoản">
+              <Form.Control
+                {...register('username')}
+                placeholder="Tài khoản"
+                isInvalid={Boolean(errors.username?.message)}
+              />
+            </Form.FloatingLabel>
+            <MessageError text={errors.username?.message} />
             <br />
-            <div className="w-75">
-              <Form.FloatingLabel controlId="password" label="Mật khẩu">
-                <Form.Control
-                  {...register('password')}
-                  type="password"
-                  placeholder="Mật khẩu"
-                  isInvalid={Boolean(errors.password?.message)}
-                />
-              </Form.FloatingLabel>
-              <MessageError text={errors.password?.message} />
-            </div>
+
+            <Form.FloatingLabel controlId="password" label="Mật khẩu">
+              <Form.Control
+                {...register('password')}
+                type="password"
+                placeholder="Mật khẩu"
+                isInvalid={Boolean(errors.password?.message)}
+              />
+            </Form.FloatingLabel>
+            <MessageError text={errors.password?.message} />
             <br />
-            <LoadingButton variant='primary' loading={loading} type="submit">
-              Đăng nhập
-            </LoadingButton>
+
+            <div className="text-center">
+              <LoadingButton variant="primary" loading={loading} type="submit">
+                Đăng nhập
+              </LoadingButton>
+            </div>
           </Form>
 
           <p className="text-center mt-3 opacity-75" style={{ fontSize: 13 }}>
@@ -100,21 +99,22 @@ const LoginPage: React.FC = () => {
           </p>
 
           <div className="d-flex justify-content-center gap-5">
-            <BsFacebook color="blue" size={25} />
-            <BsGoogle color="red" size={25} />
+            <BsFacebook color="blue" size={25} className="pointer" />
+            <BsGoogle color="red" size={25} className="pointer" />
           </div>
         </div>
+      </div>
 
-        <div className="h-100 d-none d-md-block" style={{ flex: 1 }}>
-          <img
-            className="w-100 h-100 rounded-4"
-            src="https://images.unsplash.com/photo-1658572352229-14bbe60b3c5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-            alt="img"
-          />
-        </div>
+      <div className="w-50">
+        <Image
+          className="w-100 h-100"
+          style={{ objectFit: 'cover' }}
+          src="https://images.unsplash.com/photo-1658572352229-14bbe60b3c5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+          alt="img"
+        />
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default DangNhapPage;

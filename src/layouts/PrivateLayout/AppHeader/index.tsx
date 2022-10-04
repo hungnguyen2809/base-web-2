@@ -35,7 +35,7 @@ const AppHeader: React.FC = () => {
             NH
           </CAvatar>
         </CDropdownToggle>
-        <CDropdownMenu className="pt-0" placement="bottom-end">
+        <CDropdownMenu className="pt-0">
           <CDropdownHeader className="bg-light fw-semibold py-2">Tài khoản</CDropdownHeader>
 
           <CDropdownItem>

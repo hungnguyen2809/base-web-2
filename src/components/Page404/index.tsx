@@ -18,7 +18,7 @@ const Page404: React.FC = () => {
     <div className={cx('wrap__page-404')}>
       <div style={{ height: '10%' }} />
       <div className="text-center">
-        <Alert color="danger">Trang không tồn tại hoặc bạn không có quyền truy cập !</Alert>
+        <Alert variant="danger">Trang không tồn tại hoặc bạn không có quyền truy cập !</Alert>
         <div style={{ height: 50 }} />
         <Button onClick={handleGoHome}>Trang chủ</Button>
       </div>

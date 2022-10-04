@@ -6,7 +6,7 @@ type MessageErrorProps = {
 
 const MessageError: React.FC<MessageErrorProps> = ({ text }) => {
   return text ? (
-    <p className="m-0 text-danger" style={{ fontSize: '0.9rem' }}>
+    <p className="m-0 ms-1 text-danger" style={{ fontSize: '0.9rem' }}>
       {text}
     </p>
   ) : (
